@@ -13,7 +13,8 @@
   },
   "dependencies": {
     "gsap": "^3.12.2",
-    "three": "^0.155.0",
+    "lil-gui": "^0.19.1",
+    "three": "^0.159.0",
     "vite-plugin-glslify": "^2.0.2"
   }
 }

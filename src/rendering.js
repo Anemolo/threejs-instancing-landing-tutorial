@@ -1,13 +1,9 @@
-
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js"
 
 export class Rendering {
-  constructor(canvas, palette) {
+  constructor(canvas) {
     this.canvas = canvas;
-    let hex = "#"+ palette.highlight.getHexString()
-    document.documentElement.style.setProperty("--text", hex);
-
 
     this.vp = {
       canvas: {
@@ -28,10 +24,12 @@ export class Rendering {
       antialias: true,
       canvas,
       stencil: false,
+      alpha: true,
     });
 
     this.renderer.setSize(this.vp.canvas.width, this.vp.canvas.height, false);
     this.renderer.setPixelRatio(this.vp.canvas.dpr);
+    this.renderer.toneMapping = THREE.ACESFilmicToneMapping
 
     this.camera = new THREE.PerspectiveCamera(
       45,
@@ -42,8 +40,6 @@ export class Rendering {
     this.camera.position.z = 5;
 
     this.scene = new THREE.Scene();
-
-    this.scene.background = palette.BG.clone()
 
     this.clock = new THREE.Clock();
 

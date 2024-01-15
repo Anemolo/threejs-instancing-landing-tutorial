@@ -4,25 +4,10 @@ import { Rendering } from "./rendering"
 import * as THREE from "three";
 
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js"
-import { palettes, sinPalettes } from "./palettes";
-import { getPaletteFromParams, setupControls } from "./utils";
-
-// Colors 
-let paletteKey = getPaletteFromParams("blue")
-
-let palette = palettes[paletteKey]
-let sinPalette = sinPalettes[paletteKey]
-
-let sinUniforms = {
-    c0: new THREE.Uniform(sinPalette.c0),
-    c1: new THREE.Uniform(sinPalette.c1),
-    c2: new THREE.Uniform(sinPalette.c2),
-    c3: new THREE.Uniform(sinPalette.c3),
-}
 
 class Demo {
   constructor(){
-    this.rendering = new Rendering(document.querySelector("#canvas"), palette)
+    this.rendering = new Rendering(document.querySelector("#canvas") )
     this.controls = new OrbitControls(this.rendering.camera, this.rendering.canvas)
 
     this.uTime = new THREE.Uniform(0)
@@ -41,11 +26,10 @@ class Demo {
     gsap.ticker.add(this.tick)
   }
   tick = (time, delta)=>{
-    this.uTime.value += delta;
+    this.uTime.value += delta * 0.001 * 0.5;
     this.rendering.render()
   }
 }
 
 let demo = new Demo()
 
-setupControls(paletteKey)
