@@ -16,12 +16,24 @@
 
 Starter files for "How to build a 3D landing page effect using ThreeJS" Youtube tutorial
 
-Youtube Tutorial: [Link](https://www.youtube.com/watch?v=yvvLXkWFTkU)
-Live Demo: [link](https://threejsinstancing.com)
-Full Course: [Link](https://threejsinstancing.com)
+Youtube Tutorial: [Link](https://www.youtube.com/watch?v=yvvLXkWFTkU).
 
+Live Demo: [link](https://threejsinstancing.com).
+
+Full Course: [Link](https://threejsinstancing.com).
+
+# Create mind-blowing threejs scenes with instancing - [ Mastering ThreeJS Instancing Course ](https://threejsinstancing.com/)
+
+In this course you'll learn to create incredible projects with millions of objects by learning instancing. You'll learn the basics of instancing, how and why it works while creating three amazing projects.
+
+[Learn to make more projects like this one and level up your skills as a creative dev now!](https://threejsinstancing.com/) 
+
+### [Weekly Webgl newsletter](https://offscreencanvas.com)
 
 New learning resources/demos/articles each week in the newsletter. 
+
+[offscreencanvas.com](https://offscreencanvas.com)
+
 
 # Tutorial Code snippets 
 
