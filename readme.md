@@ -12,7 +12,7 @@
     </a>
 </p>
 
-[![Demo Image](./logo.png)](https://offscreencanvas.com/renders/demo-title)
+[![Demo Image](./cover.png)](https://www.youtube.com/watch?v=yvvLXkWFTkU)
 
 Starter files for "How to build a 3D landing page effect using ThreeJS" Youtube tutorial
 
