@@ -1,4 +1,4 @@
-<h1 align="center">DEMO-TITLE</h1>
+<h1 align="center">How to build 3D landing page effect using ThreeJS</h1>
 
 <p align="center">
     <a href="https://offscreencanvas.com" target="_blank" rel="noopener noreferrer">
@@ -14,20 +14,21 @@
 
 [![Demo Image](./logo.png)](https://offscreencanvas.com/renders/demo-title)
 
-Demo for 
-Description
+Starter files for "How to build a 3D landing page effect using ThreeJS" Youtube tutorial
 
-More learning resources and similar demos in my newsletter issue. 
+Youtube Tutorial: [Link](https://www.youtube.com/watch?v=yvvLXkWFTkU)
+Live Demo: [link](https://threejsinstancing.com)
+Full Course: [Link](https://threejsinstancing.com)
 
-Article: [Link](https://offscreencanvas.com/issues/demo-title)
 
-Demo: [Link](https://offscreencanvas.com/renders/demo-title)
+New learning resources/demos/articles each week in the newsletter. 
 
-New learning resources/demos/articles each week ( or so c: ) in the newsletter. Subscribe!
-
-Next Article: [Grid Tile Patterns](https://offscreencanvas.com/issues/grid-tile-patterns/)
+# Tutorial Code snippets 
 
 ---
+
+```js
+
 
 let ambient = new THREE.AmbientLight(0xffffff, .75)
 let sun = new THREE.DirectionalLight(0xffffff, 2.0)
@@ -36,7 +37,12 @@ sun.position.set(0.5, 0.5, 0.5)
 this.rendering.scene.add(sun)
 this.rendering.scene.add(ambient)
 
+
+```
+
 ---
+
+```js
 let uniforms = {
   uTime: uTime,
   uColors: { value: [new THREE.Color("#FFD542"), new THREE.Color("#FF4141"), new THREE.Color("#B75AFF")]}
@@ -50,7 +56,9 @@ material.onBeforeCompile = (shader)=>{
       }
     }
 
+```
 ---
+```js
 let vertexHead = glsl`
       attribute vec4 aInstance;
 			uniform float uTime;
@@ -70,13 +78,17 @@ let vertexHead = glsl`
 
       gl_Position = projectionMatrix * mvPosition;
       `;
+```
 ---
 
+```js
 shader.fragmentShader = fragmentHead + shader.fragmentShader
 shader.fragmentShader = shader.fragmentShader.replace("#include <color_fragment>", colorFragment)
 
+```
 ---
 
+```js
 let fragmentHead = glsl`
   #define USE_COLOR
   varying float vColorful;
@@ -95,7 +107,11 @@ let fragmentHead = glsl`
   #endif
   `
 
+```
 ---
+
+```glsl
+
 mat4 rotationMatrix(vec3 axis, float angle) {
       axis = normalize(axis);
       float s = sin(angle);
@@ -112,16 +128,25 @@ mat4 rotationMatrix(vec3 axis, float angle) {
       mat4 m = rotationMatrix(axis, angle);
       return (m * vec4(v, 1.0)).xyz;
     }
+
+```
 ---
+
+```glsl
 
 float between(float center, float range, float val){
       return smoothstep(center - range, center, val) * smoothstep(center + range, center, val); 
     }
 
+```
 ---
 
 
+```glsl
+
 transformed = rotate(transformed, normalize(vec3(0.2, 1., 0.4)), uTime * (1. * aInstance.z + 0.3)+   aInstance2.x);
+
+```
 
 ---
 ## Installing & Running
@@ -137,18 +162,6 @@ yarn dev
 | --- | --- |
 | demo.js | The meat of the demo |
 | rendering.js | All the threeJS rendering |
-| palettes.js | Offscreen canvas paletters, and default sin palette options. May be changed by the demo |
-
-#### Details
-
-These demos have colors managed already. So, `THREE.ColorManagement.enabled = false` is set by default on the `palettes.js` file 
-
-### Controls
-
-| keybind | Description |
-| --- | --- |
-| ArrowLeft/ArrowRight | Change between color palettes |
-
 
 ## License
 This resource can be used freely if integrated or build upon in personal or commercial projects such as websites, web apps and web templates intended for sale. It is not allowed to take the resource "as-is" and sell it, redistribute, re-publish it, or sell "pluginized" versions of it. Free plugins built using this resource should have a visible mention and link to the original work. Always consider the licenses of all included libraries, scripts and images used.
